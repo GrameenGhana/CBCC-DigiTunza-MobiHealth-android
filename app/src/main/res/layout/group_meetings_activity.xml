@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+
+
+
+   <android.support.design.widget.CoordinatorLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+
+       <android.support.v7.widget.RecyclerView
+           android:layout_marginTop="@dimen/spacing_half"
+           android:id="@+id/meetings_recyclerView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+
+            >
+
+
+
+
+       </android.support.v7.widget.RecyclerView>
+
+
+
+
+       <android.support.design.widget.FloatingActionButton
+           android:id="@+id/add_new_meeting"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:fabSize="normal"
+           android:src="@drawable/ic_group_add_white_24dp"
+           app:layout_anchor="@id/meetings_recyclerView"
+           app:layout_anchorGravity="bottom|end"
+           android:layout_margin="@dimen/spacing_normal"
+           app:layout_behavior="@string/appbar_scrolling_view_behavior"
+           />
+   </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

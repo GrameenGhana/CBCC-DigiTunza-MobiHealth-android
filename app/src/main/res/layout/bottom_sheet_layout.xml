@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_normal"
+            android:text="Set up a new meeting"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:padding="16dp"/>
+
+
+
+        <TextView
+            android:id="@+id/add_new_meeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:text="ADD"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/spacing_normal"
+
+
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/meeting_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_half"
+        android:layout_marginBottom="@dimen/spacing_normal"
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/facility_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Topic"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@android:color/primary_text_light"
+            android:textColorHighlight="@color/colorAccent"
+            android:inputType="textCapSentences"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingRight="@dimen/spacing_normal"
+        android:weightSum="2"
+        >
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/selStartDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_half"
+            android:background="?attr/selectableItemBackground"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/startDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Date/Time"
+                android:textSize="@dimen/text_size_small"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorAccent"
+                android:src="@drawable/ic_date_range_grey_500_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/spacing_half"
+
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/selEndDateTime"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_half"
+            android:background="?attr/selectableItemBackground"
+
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/endDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Date/Time"
+                android:textSize="@dimen/text_size_small"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorAccent"
+                android:src="@drawable/ic_date_range_grey_500_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/spacing_half"
+
+                />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bottom_sheet_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_normal"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:oppiamobile="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/menu_help"
+        android:title="@string/menu_help"
+       	android:icon= "@drawable/ic_help_white_24dp"/>
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/ic_info_white_24dp"
+        android:title="@string/menu_about"/>
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_exit_to_app_white_24dp"
+        android:title="@string/menu_logout"/>
+       <item
+        android:id="@+id/menu_sync"
+        android:icon="@drawable/ic_sync_white_24dp"
+        android:title="Sync now"/>
+</menu>

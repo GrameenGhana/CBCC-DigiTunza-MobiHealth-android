@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="org.cbccessence.mobihealth"
+    android:versionCode="1"
+    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="25" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme2">
+        
+         <provider
+        android:name="org.cbccessence.mobihealth.database.StubProvider"
+        android:authorities="org.cbccessence.provider"
+        android:exported="false"
+        android:syncable="true"/>
+        <service
+            android:name="org.cbccessence.mobihealth.syncadapter.AuthenticatorService">
+        <intent-filter>
+            <action android:name="android.accounts.AccountAuthenticator"/>
+        </intent-filter>
+        <meta-data
+            android:name="android.accounts.AccountAuthenticator"
+            android:resource="@xml/authenticator" />
+    </service>
+        <service
+                android:name="org.cbccessence.mobihealth.syncadapter.SyncService"
+                android:exported="true"
+                android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                    android:resource="@xml/syncadapter" />
+        </service>
+   
+        <activity
+            android:name="org.cbccessence.mobihealth.activity.WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.cbccessence.mobihealth.activity.MenuActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.FirstTrimesterActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.PregnancyMenuActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.SecondTrimesterActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.ThirdTrimesterActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.ChildCareMenu"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.YouthHealthMenuActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.VisualAidsGalleryView"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.AlertMessagesActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.settings.LanguageSettingsActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.LoginActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.NewPatientRegistrationActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.VisualAidsActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.AudioGalleryActivity"/>
+         <activity android:name="org.cbccessence.mobihealth.application.URLMediaPlayerActivity"/>
+
+        <activity android:name="org.cbccessence.mobihealth.activity.GroupMeetingsActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.NewGroupMeetingActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.ViewMeetingsActivity"/>
+        <activity android:name="org.cbccessence.mobihealth.activity.VisualAidsPdfView"/>
+    </application>
+
+</manifest>
+

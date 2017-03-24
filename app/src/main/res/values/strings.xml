@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DigiTunza</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="mobile_midwife">Mobile Midwife</string>
+    <string name="pregnancy_messages">Pregnancy Messages</string>
+    <string name="first_year">Babys First Year of Life Messages</string>
+    <string name="reproductive_health">Reproductive Health Drama Series</string>
+    <string name="youth_sexual">Youth Sexual Health Messages</string>
+    <string name="visual_aids">Visual Aids</string>
+    <string name="referral">Referral Activation Alert System</string>
+    <string name="select">Select a category to send message</string>
+    <string name="birth_preparedness">Birth Preparedness / Facility Delivery</string>
+    <string name="warning_signs">Warning signs of pregnancy</string>
+    <string name="show_intro">Press a thumbnail to display at larger size</string>
+    <string name="select_language">Select a language option</string>
+    <string name="select_audio">Select one to listen </string>
+    <string name="action_home">Home</string>
+    <string name="fname">Lastname, Firstname </string>
+     <string name="registration">Register Client</string>
+    <string name="name">Name</string>
+     <string name="action_logout">Logout</string>
+    <string name="language_english">English</string>
+    <string name="language_ewe">Ewe</string>
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="staff_id">Staff ID:</string>
+    <string name="facility_id">Facility ID:</string>
+    <string name="reg_date">Reg Date:</string>
+    <string name="reg_mode">Reg Mode:</string>
+    <string name="client_type">Client Type:</string>
+    <string name="first_name">Firstname:</string>
+    <string name="last_name">Lastname:</string>
+    <string name="middle_name">Middlename:</string>
+    <string name="date_of_birth">Date of Birth:</string>
+    <string name="estimated_dob">Estimated DOB?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="exact_dob">Exact DOB</string>
+    <string name="estimated">Estimated</string>
+    <string name="sex">Sex:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="insured">Insured?</string>
+    <string name="region">Region:</string>
+    <string name="address">Address:</string>
+    <string name="contact_phone_number">Contact Phone Number:</string>
+    <string-array name="regions">
+   	<item>Greater Accra Region</item>
+	<item>Central Region</item>   	 
+	<item>Brong Ahafo Region</item>
+	<item>Ashanti Region</item>
+	<item>Upper East Region</item>
+	<item>Upper West Region</item>
+	<item>Northern Region</item>
+	<item>Volta Region</item>
+	<item>Western Region</item>
+	<item>Eastern Region</item>
+    </string-array>
+
+    <string-array name="client_type">
+   	<item>Pregnant Mother</item>
+	<item>Child under 5</item>   	 
+	<item>Mother of infant</item>
+	<item>Other</item>
+    </string-array>
+
+
+    <string-array name="reg_mode">
+        <item>Auto generated ID</item>
+        <item>Use printed ID</item>
+
+    </string-array>
+
+
+    <string name="submit">Submit</string>
+    <string name="new_client_registration">New Client Registration</string>
+    <string name="nhis_number">NHIS number:</string>
+    <string name="nhis_expiry_date">NHIS Expiry Date:</string>
+    <string name="motech_id">Motech ID:</string>
+
+    <string name="login_process">Logging in</string>
+    <string name="login_complete">Logged in</string>
+    <string name="logout_confirm">Are you sure you want to logout?\n\nLogging out will remove all your activity logs from this phone. You will need an active internet connection to log in again.</string>
+    <string name="register_process">Registering</string>
+    <string name="register_complete">Successfully registered</string>
+    <string name="no_access">You do not have access to this module.</string>
+    <string name="error_connection">Error connecting to server. Please check you have an active internet connection and try again.</string>
+    <string name="user_not_found">User not found. Please register.</string>
+    <string name="error_connection_required">You need an active internet connection to access this page. Please turn on wifi or mobile internet connection and try again.</string>
+    <string name="error_installing_course">%1$s: failed to install</string>
+    <string name="error_latest_already_installed">%1$s: latest version already installed</string>
+    <string name="error_login">Invalid username/password\nPlease try again</string>
+    <string name="error_media_app_not_found">You don\'t appear to have a media player installed which supports playing this video.</string>
+    <string name="error_no_username">Please enter your username</string>
+    <string name="error_no_password">Please enter your password</string>
+    <string name="error_no_username_or_password">Please enter username and password</string>
+    <string name="error_processing_response">Error processing response</string>
+    <string name="error_quiz_no_questions">There aren\'t any questions in this quiz.</string>
+    <string name="error_resource_app_not_found">You don\'t seem to have an app installed to open \'%1$s\'. Please install an app capable of opening this type of file.</string>
+    <string name="error_resource_not_found">File: \'%1$s\' not found.</string>
+    <string name="error_sdcard">Your SD card is not available - please restart this app when the SD card is available.\nThe app will now close.</string>
+    <string name="error_media_not_found">Media file: \'%1$s\' not found.</string>
+    <string name="error_media_unsupported">\'%1$s\' does not appear to be a supported media file type.</string>
+    <string name="error_download_failure">Download failed</string>
+    <string name="error_update_failure">Update failed</string>
+    <string name="error_install_failure">Install failed</string>
+    <string name="menu_download">Download Courses</string>
+    <string name="menu_download_all">Download All</string>
+    <string name="menu_language">Change language</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_monitor">Monitor</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_return_to_courses">Return to courses</string>
+    <string name="menu_stop_read_aloud">Stop reading</string>
+
+
+
+    <string-array name="Trimester">
+        <item>1st Trimester</item>
+        <item>2nd Trimester</item>
+        <item>3rd Trimester</item>
+    </string-array>
+
+    <string-array name="weeks">
+        <item>Week 1</item>
+        <item>Week 2</item>
+        <item>Week 3</item>
+        <item>Week 4</item>
+        <item>Week 5</item>
+        <item>Week 6</item>
+        <item>Week 7</item>
+        <item>Week 8</item>
+    </string-array>
+
+    <string-array name="Districts">
+        <item>Ada East</item>
+        <item>Ada West</item>
+        <item>Ningo Prampram</item>
+        <item>South Tongu</item>
+        <item>South Dayi</item>
+    </string-array>
+
+    <string-array name="Intervals">
+        <item>One month interval</item>
+        <item>Three month interval</item>
+        <item>Three year interval</item>
+        <item>Five year interval</item>
+        <item>Ten year interval</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="marital_status">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+    </string-array>
+    <string-array name="education">
+        <item>Completed Primary</item>
+        <item>Completed Secondary</item>
+        <item>Completed Tertiary</item>
+    </string-array>
+    <string-array name="occupation">
+        <item>Formal</item>
+        <item>Self-employed</item>
+        <item>Unemployed</item>
+        <item>Five year interval</item>
+        <item>Ten year interval</item>
+    </string-array>
+    <string-array name="pregnancy_status">
+        <item>Pregnant</item>
+        <item>I have a baby</item>
+        <item>Pregnant and have a baby</item>
+    </string-array>
+
+
+    <string-array name="loc">
+        <item>Urban</item>
+        <item>Rural</item>
+    </string-array>
+
+    <string-array name="channel">
+        <item>SHS</item>
+        <item>JHS</item>
+        <item>Tertiary</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="program">
+        <item>Latin</item>
+        <item>Ewe</item>
+        <item>Latin</item>
+        <item>Twi</item>
+        <item>Swahili</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+    </string-array>
+
+
+      <string name="age">Age</string>
+    <string name="gender">Gender</string>
+     <string name="register_mm">Register for DigiAfia</string>
+    <string name="phone">Phone Number</string>
+    <string name="channel">Channel</string>
+    <string name="voice">Voice</string>
+    <string name="sms">Sms</string>
+    <string name="week">Start week</string>
+    <string name="program">Program</string>
+    <string name="pregnancy_content">Pregnancy Content</string>
+    <string name="child_content">Child Content</string>
+    <string name="start_week">Start week</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+
+
+</resources>
