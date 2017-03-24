@@ -239,7 +239,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
                             dialogInterface.dismiss();
-                            LoginActivity.this.finish();
+                            supportFinishAfterTransition();
 
                         }
                     });
