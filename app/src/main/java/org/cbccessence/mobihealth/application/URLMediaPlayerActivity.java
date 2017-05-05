@@ -32,7 +32,7 @@ import org.cbccessence.mobihealth.R;
 import org.cbccessence.mobihealth.activity.MenuActivity;
 import org.cbccessence.mobihealth.database.MobiHealthDatabaseHandler;
 
-public class URLMediaPlayerActivity extends Activity {
+public class URLMediaPlayerActivity extends BaseActivity {
 
     private MediaPlayer mediaPlayer;
     private SeekBar seekBar;
@@ -66,6 +66,7 @@ public class URLMediaPlayerActivity extends Activity {
         // get data from main activity intent
 
         final String audioFile =   intent.getStringExtra(MobiHealth.AUDIO_URL);
+
         type = intent.getStringExtra(MobiHealth.TYPE);
         fileName= intent.getStringExtra("fileName");
         module = intent.getStringExtra(MobiHealth.MODULE);

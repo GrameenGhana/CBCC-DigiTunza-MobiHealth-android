@@ -15,6 +15,7 @@ import org.cbccessence.mobihealth.model.Content;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,6 +24,7 @@ import android.widget.RelativeLayout;
 
 public class AudioGalleryActivity extends BaseActivity implements OnItemClickListener {
 
+	String TAG = AudioGalleryActivity.class.getSimpleName();
 	private ListView audioGrid;
 	private Player player;
 	private String path;
@@ -99,6 +101,9 @@ public class AudioGalleryActivity extends BaseActivity implements OnItemClickLis
 			intent.putExtra(MobiHealth.MODULE, module);
 			intent.putExtra(MobiHealth.EXTRAS,extras);
 			startActivity(intent);
+
+			Log.i(TAG, "File name is " + audioList.get(position).getDocName());
+			Log.i(TAG, "File location is at " + audioList.get(position).getDocLoc());
 		}
 		   
 }

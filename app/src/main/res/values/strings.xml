@@ -201,14 +201,9 @@
     </string-array>
 
     <string-array name="program">
-        <item>Latin</item>
-        <item>Ewe</item>
-        <item>Latin</item>
-        <item>Twi</item>
-        <item>Swahili</item>
-        <item>English</item>
-        <item>French</item>
-        <item>Spanish</item>
+        <item>Kijana</item>
+        <item>Afia</item>
+        <item>Mlezi</item>
     </string-array>
 
 
