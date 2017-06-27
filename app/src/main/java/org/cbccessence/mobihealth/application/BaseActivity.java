@@ -24,10 +24,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 public class BaseActivity  extends AppCompatActivity {
 	Context mContext;
 
+	static String TAG = BaseActivity.class.getSimpleName();
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,6 +56,50 @@ public class BaseActivity  extends AppCompatActivity {
 
 			case R.id.action_logout:
 				logout();
+
+				return true;
+
+
+			case R.id.language:
+
+
+				final List<String> languages;
+				languages = getLanguages();
+
+				if(languages != null) {
+
+				ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+						R.layout.select_dialog, R.id.select_item,
+						languages);
+
+				android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this, R.style.AppDialog);
+				builder.setTitle("Please select language")
+						.setCancelable(true)
+						.setAdapter(adapter, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialogInterface, int i) {
+
+
+								String _language = languages.get(i);
+								dialogInterface.dismiss();
+								PreferenceManager.getDefaultSharedPreferences(BaseActivity.this).edit().putString("language", _language).apply();
+								Toast.makeText(BaseActivity.this, "You have selected " + _language, Toast.LENGTH_SHORT).show();
+
+								MobiHealth.ROOT_DIR = MobiHealth.ROOT + File.separator + PreferenceManager.getDefaultSharedPreferences(BaseActivity.this).getString("language", _language);
+
+								finish();
+								overridePendingTransition(0, 0);
+								startActivity(new Intent(BaseActivity.this, MenuActivity.class));
+
+							}
+						});
+
+				builder.create().show();
+
+		} else {
+			Toast.makeText(this, "No languages found! Default language is set to english", Toast.LENGTH_SHORT).show();
+
+		}
 
 				return true;
 
@@ -83,7 +130,7 @@ public class BaseActivity  extends AppCompatActivity {
 
 						dialog.cancel();
 						SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
-						prefs.edit().clear().apply();
+						prefs.edit().putBoolean("isSignedIn", false).apply();
 						Intent intent = new Intent(BaseActivity.this, WelcomeActivity.class);
 						startActivity(intent);
 						BaseActivity.this.finish();
@@ -287,4 +334,37 @@ public class BaseActivity  extends AppCompatActivity {
 			return docs;
 		}
 	}
+
+
+
+	public static List<String> getLanguages(){
+
+		List<String> languages = new ArrayList<>();
+		File root = new File(MobiHealth.ROOT);
+
+		if(root.isDirectory()) {
+
+			File[] allLanguagesInDirectory = root.listFiles();
+
+			if(allLanguagesInDirectory.length <= 1)
+				return null;
+
+			else {
+
+				for (File lang : allLanguagesInDirectory) {
+					if (lang.isDirectory())
+						languages.add(lang.getName());
+
+					Log.i(TAG, "Language added with name : " + lang.getName());
+
+				} return languages;
+
+			}
+		} return null;
+
+
+	}
+
+
+
 }

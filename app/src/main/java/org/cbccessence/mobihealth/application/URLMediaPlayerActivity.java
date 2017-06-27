@@ -108,6 +108,16 @@ public class URLMediaPlayerActivity extends BaseActivity {
 
             // inflate layout
             setContentView(R.layout.activity_media_player);
+            /*
+            if(getSupportActionBar() != null)
+            getSupportActionBar().setElevation(0f);*/
+
+
+            try {
+                getSupportActionBar().hide();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
 
             // display title
 

@@ -23,6 +23,7 @@
     <string name="name">Name</string>
      <string name="action_logout">Logout</string>
     <string name="language_english">English</string>
+    <string name="language">Language</string>
     <string name="language_ewe">Ewe</string>
     <string name="ok">OK</string>
     <string name="settings">Settings</string>

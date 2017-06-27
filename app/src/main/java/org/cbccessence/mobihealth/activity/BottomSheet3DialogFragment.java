@@ -238,11 +238,8 @@ public class BottomSheet3DialogFragment extends BottomSheetDialogFragment {
                     databaseHandler.insertMeetingAttendee(_attendee.getAttendeeName(), meeting_uid);
                     _attendee.setAttended(true);
 
-
                 }
                 if(attendeeAdapter != null) attendeeAdapter.notifyDataSetChanged();
-
-
 
             }else{ //Display toast or dialog! select start date! because that's the meeting uid!!! it cant be null.
 

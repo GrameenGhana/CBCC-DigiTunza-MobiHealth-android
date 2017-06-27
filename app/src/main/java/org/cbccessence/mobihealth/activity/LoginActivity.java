@@ -42,6 +42,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -103,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         password_layout = (TextInputLayout) findViewById(R.id.password_layout);
 
 
-         fab = (FloatingActionButton) findViewById(R.id.login_fab);
+        fab = (FloatingActionButton) findViewById(R.id.login_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
                 imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
 
 
-
                 onLoginClick();
 
                 return true;
@@ -135,21 +135,62 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginClick() {
 
-        if (!httpHandler.checkInternetConnection()) {
-            httpHandler.showAlertDialog(LoginActivity.this, "No Internet Connection!",
-                    "You need an active internet connection. Please connect to the internet and try again");
-
-        }else {
 
 
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                launchMultiplePermissions(LoginActivity.this);
-            else performLoginTask();
 
+        if(PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).getBoolean("isFirstSignIn", true)){
 
+            Log.i(TAG, "Is first run is True");
+            // check for Internet status
+            if (httpHandler.checkInternetConnection()) {
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    launchMultiplePermissions(LoginActivity.this);
+                     else performLoginTask();
+
+            } else {
+                // Internet connection is not present
+                // Ask user to connect to Internet
+                httpHandler.showAlertDialog(LoginActivity.this, "No Internet Connection",
+                        "If this is your first time signing in, you need to sign in online!");
+            }
+
+        }else{     Log.i(TAG, "Is first run is False. Creds have probably been saved before");
+
+            if (httpHandler.checkInternetConnection()) {
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                  launchMultiplePermissions(LoginActivity.this);
+                     else performLoginTask();
+
+            } else {
+                fab.setEnabled(false);
+
+                Log.i(TAG, "No Internet, Checking for creds locally");
+                username = username_layout.getEditText().getText().toString().trim();
+                password = password_layout.getEditText().getText().toString().trim();
+
+                Log.i(TAG, "Login locally");
+
+                if (!validate()) {
+                    Toast.makeText(LoginActivity.this, "Please enter valid username and or password", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    if (username.equals(PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).getString("username", "null")) &&
+                            password.equals(PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).getString("password", "null"))) {
+
+                        Log.i(TAG, "Local username and password match!");
+                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+                        PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).edit().putBoolean("isSignedIn", true).apply();
+                        PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).edit().putBoolean("isFirstSignIn", false).apply();
+                        startActivity(intent);
+                        finish();
+                    } else   Toast.makeText(LoginActivity.this, "Incorrect username and password", Toast.LENGTH_SHORT).show();
+
+                }
+            }
         }
-
-
     }
 
 
@@ -317,6 +358,9 @@ public class LoginActivity extends AppCompatActivity {
         android.support.v7.app.AlertDialog dialog;
         Integer uid;
 
+        String email;
+        String password;
+
 
         public LoginTask(AppCompatActivity c) {
             this.ctx = c;
@@ -346,8 +390,8 @@ public class LoginActivity extends AppCompatActivity {
             String url = "http://188.166.30.140/gfcare/api/users/login";
             JSONObject json = new JSONObject();
 
-            String email = strings[0];
-            String password = strings[1];
+            email = strings[0];
+            password = strings[1];
             String module = "gfcare-module-3";
 
             try {
@@ -386,6 +430,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         break;
                     default: // logged in
+
 
 
                         JSONObject jsonResp = new JSONObject(responseJsonString);
@@ -501,23 +546,12 @@ public class LoginActivity extends AppCompatActivity {
                 //logged In start activity
 
 
-                // test
-                Projects _project = new Projects();
-                _project.setProjectId(5);
-                _project.setTeamId(60);
-                _project.setProjectOwnerId(7);
-                _project.setProjectName("Camara's Test Project");
-                _project.setDateUpdated("01/02/02");
-                _project.setgetDateCreated("01/02/02");
-                projects.add(_project);
-
 
                 if (projects != null) {
                     Log.i(TAG, "There are " + projects.size() + " project(s) ");
 
                     Log.i(TAG, "0 " + projects.get(0));
 
-                    Log.i(TAG, "1 " + projects.get(1));
 
 
                     if (projects.size() == 0) {
@@ -612,6 +646,9 @@ public class LoginActivity extends AppCompatActivity {
             responsePostJsonString = "OK";
             prefsEditor = prefs.edit();
 
+            prefsEditor.putString("username", email);
+            prefsEditor.putString("password", password);
+
             switch (responsePostJsonString) {
 
                 case "OK":
@@ -619,6 +656,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     prefsEditor.putBoolean("isSignedIn", true);
                     prefsEditor.putBoolean("isFirstSignIn", false);
+
                     prefsEditor.apply();
                     ctx.startActivity(intent);
                     ctx.finish();

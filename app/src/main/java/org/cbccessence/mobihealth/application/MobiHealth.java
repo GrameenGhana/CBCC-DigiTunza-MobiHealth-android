@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.io.File;
 
@@ -33,8 +34,12 @@ public class MobiHealth extends Application {
 
 	public static final String TAG = MobiHealth.class.getSimpleName();
 
-	public static String ROOT_DIR = Environment
-			.getExternalStorageDirectory() + File.separator + "Tunza";
+
+
+	public static String ROOT = Environment
+			.getExternalStorageDirectory() + File.separator + ".Tunza";
+
+	public static String ROOT_DIR = ROOT + File.separator + "English";
 
 	public static final String VA_DOC_DIR = "Visual Aids/Documents";
 	public static final String VA_IMA_DIR = "Visual Aids/Images";
@@ -82,9 +87,16 @@ public class MobiHealth extends Application {
     public final static String EWE_AUDIO_LOCATION = "eweLocation";
     public final static String ENGLISH_AUDIO_LOCATION = "englishLocation";
     public final static String EXTRAS = "extras";
+
+
 	public void onCreate(){
         super.onCreate();
-        MobiHealth.context = getApplicationContext();
+
+		ROOT_DIR = ROOT + File.separator + PreferenceManager.getDefaultSharedPreferences(this).getString("language", "English");
+
+		Log.i("APPLICATION", "Language is " + PreferenceManager.getDefaultSharedPreferences(this).getString("language", "English"));
+
+		MobiHealth.context = getApplicationContext();
         	SERVER_ADDRESS=context.getResources().getString(R.string.prefServerDefault);
 
     }
