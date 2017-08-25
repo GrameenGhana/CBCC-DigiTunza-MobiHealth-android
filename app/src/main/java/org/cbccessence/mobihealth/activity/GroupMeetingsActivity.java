@@ -127,19 +127,8 @@ public class GroupMeetingsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-
-
-
-
                 BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheet3DialogFragment();
                 bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
-
-
-
-
-
-
-
 
             }
         });

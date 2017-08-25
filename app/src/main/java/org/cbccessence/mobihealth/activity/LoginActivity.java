@@ -1,11 +1,14 @@
 package org.cbccessence.mobihealth.activity;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.cbccessence.mobihealth.HttpHandler;
 import org.cbccessence.mobihealth.R;
 import org.cbccessence.mobihealth.adapter.ProjectsListAdapter;
+import org.cbccessence.mobihealth.application.MobiHealth;
 import org.cbccessence.mobihealth.model.Projects;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -546,6 +549,7 @@ public class LoginActivity extends AppCompatActivity {
                 //logged In start activity
 
 
+                createNoMediaFile();
 
                 if (projects != null) {
                     Log.i(TAG, "There are " + projects.size() + " project(s) ");
@@ -597,6 +601,34 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
+
+        }
+
+
+
+
+
+
+            private void createNoMediaFile() {
+
+                try{
+                    FileOutputStream out;
+
+                    File file = new File(MobiHealth.ROOT + File.separator, ".nomedia");
+                    if (!file.exists()) {
+                        out = new FileOutputStream(file);
+                        out.write(0);
+                        out.close();
+
+
+                        Log.i(TAG, "No media file created!  " + file);
+                    } else {
+                        Log.i(TAG, "No media already exists!!!!!!  " + file);
+
+                    }
+
+
+                }catch(Exception e){e.printStackTrace();}
 
         }
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
@@ -145,11 +146,18 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
 	        }
 			return newAccount;
 	    }
-	
 
-			
-	
-	 
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+
+		menu.getItem(0).setVisible(false);
+
+		return true;
+
+	}
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
